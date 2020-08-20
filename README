@@ -1,0 +1,17 @@
+*****
+
+bin2asm
+convert binary files into GNU assembler, with symbol tagging
+
+Copyright © 2020 Alexander Nicholi
+Released under Mozilla Public License 2.0.
+
+*****
+
+NOTES:
+
+1. Unlike in the old Python implementation, bin2asm no longer attempts to
+   crudely ‘guess’ symbols from the filename when provded. As a result, the
+   -s flag is now mandatory for valid use.
+2. This rewrite brings support for .size directives, so now ofiles will show
+   the sizes occupied by symbols. This may be useful for heuristics.
