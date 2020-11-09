@@ -18,9 +18,11 @@ char* convert( u8* in, ptri in_sz, char* sym )
 		uni_die( );
 	}
 
-	str = uni_str_init( "\n.balign 4, 0\n.globl " );
+	str = uni_str_init( "\n.section .rodata\n.balign 4, 0\n.globl " );
 	uni_str_app( str, (const char*)sym );
-	uni_str_appch( str, '\n' );
+	uni_str_app( str, "\n.type " );
+	uni_str_app( str, (const char*)sym );
+	uni_str_app( str, ", %object\n" );
 	uni_str_app( str, (const char*)sym );
 	uni_str_app( str, ":\n\t.byte " );
 
